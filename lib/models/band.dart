@@ -2,7 +2,7 @@ class Band {
   
   String id;
   String name;
-  String votes;
+  dynamic votes;
 
 //Constructor
   Band({
@@ -14,9 +14,9 @@ class Band {
 //Regresa una nueva instancia de la clase mediante un map con un objeto
   factory Band.fromMap(Map<String, dynamic> obj) 
   => Band (
-    id: obj['id'],
-    name: obj['name'],
-    votes: obj['votes']
+    id   : obj.containsKey('id') ? obj['id'] : 'no-id',
+    name : obj.containsKey('name') ? obj['name'] : 'no-name',
+    votes: obj.containsKey('votes') ? obj['votes'] : 'no-votes',
   );
 
 }
